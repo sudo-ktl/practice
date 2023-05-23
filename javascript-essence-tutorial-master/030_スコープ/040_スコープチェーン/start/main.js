@@ -1,12 +1,13 @@
-let a = 2;
-window.a = 4;
-function fn1() {
+let a = 2; //スクリプトスコープ
+window.a = 4; // グローバルスコープ
+function fn1() { //関数スコープ
     // let a = 1;
-    function fn2() {
+    function fn2() { //関数スコープ
         console.log(a);
 
-        if (true) {
-            var a = 3;
+        if (true) { //ブロックスコープ
+            // let a = 3;
+            console.log(a);
         }
 
     }

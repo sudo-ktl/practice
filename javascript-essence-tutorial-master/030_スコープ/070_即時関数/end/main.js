@@ -19,6 +19,7 @@ let c = (function() {
 		console.log('privateFn is called');
 	}
 	function publicFn() {
+		privateFn()
 		console.log('publicFn is called: ' + privateVal++);
 	}
 	
