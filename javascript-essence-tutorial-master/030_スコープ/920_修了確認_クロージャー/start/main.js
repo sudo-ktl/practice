@@ -16,20 +16,37 @@
  * ※四則演算は"+","-","*","/"を数値ではさんで計算を行います。
  */
 
-function calcFactory(num) {
+function calcFactory(val) {
 
-    let res = num;
+    
+    return {
 
-    function plus(val) {
-        res += val;
-        console.log(res)
-        return res;
-    }
-    function minus(val) {
-        res -= val;
-        console.log(res);
-        return res;
-    }
+        plus: function(n) {
+            const newVal = val + n;
+            console.log(val + " + " + n + " = " + newVal);
+            console.log(`${val} + ${n} = ${newVal}`)
+            val = newVal 
+        },
+    
+        minus: function(n) {
+            const newVal = val - n;
+            console.log(val + " - " + n + " - " + newVal);
+            val = newVal;
+        },
+
+        multiply: function(n) {
+            const newVal = val * n;
+            console.log(val + " * " + n + " = " + newVal);
+            val = newVal 
+        },
+
+        divide: function(n) {
+            const newVal = val / n;
+            console.log(val + " / " + n + " = " + newVal);
+            val = newVal 
+        },
+    };
+
 }
 
 const calc = calcFactory(10); // 初期値を10として設定
