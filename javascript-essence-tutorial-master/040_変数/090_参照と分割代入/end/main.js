@@ -8,10 +8,11 @@ prop = 1;
 
 console.log(a, prop);
 
-function fn({ prop }) {
+function fn({prop}) {
     prop = 1;
-    console.log(a, prop);
+    console.log(prop)
 }
+//引数を簡略化する{prop}
 
 fn(a);
 
