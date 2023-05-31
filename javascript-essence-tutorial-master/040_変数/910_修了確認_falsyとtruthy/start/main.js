@@ -14,7 +14,7 @@
 // console.log('"0" == 0', "0" == 0);
 // "0" == 0 , true
 
-// console.log('Boolean("0") === false', Boolean("0") === false);
+console.log('Boolean("0") === false', Boolean("0") === false);
 // Boolean("0") === false , true
 
 // console.log('Boolean(0) === false', Boolean(0) === false);
@@ -58,3 +58,9 @@ fn(a);
  *
  */
 
+function greeting(name, val = "hello") {
+    console.log(`${val}, ${name}`)
+}
+
+greeting("Bob", "hi");
+greeting("Bob");
