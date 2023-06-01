@@ -1,12 +1,15 @@
 const person = {
     name: 'Tom',
-    bye: () => {
+    bye() {
         console.log('Bye ' + this.name);
     },
     hello: function (greeting) {
         console.log(greeting + ' ' + this.name);
         return greeting + ' ' + this.name;
     },
+    hello1s: function() {
+        setTimeout(this.hello.bind(this,'hello'),1000)
+    }
     /**
      * 問題４：
      * 1秒後に"hello Tom"
@@ -26,6 +29,7 @@ const person = {
 
     
 }
+person.hello1s()
 
 /**
  * 問題１：
@@ -33,7 +37,7 @@ const person = {
  * と出力されるように、以下のコード
  * の記載を変更しましょう。
  */
-setTimeout(person.hello, 1000);
+// setTimeout(person.hello.bind(person,"hello"), 1000);
 
 /**
  * 問題２：
@@ -41,7 +45,7 @@ setTimeout(person.hello, 1000);
  * と出力されるように、
  * 以下のコードを変更してください。
  */
-alert(person.hello);
+// alert(person.hello("hello"));
 
 /**
  * 問題３：
@@ -50,4 +54,4 @@ alert(person.hello);
  * "Bye"しか表示されませんでした。
  * "Bye Tom"とするためにはどうすればよいでしょうか？
  */
-setTimeout(person.bye.bind(person), 1000);
+// setTimeout(person.bye.bind(person), 1000);

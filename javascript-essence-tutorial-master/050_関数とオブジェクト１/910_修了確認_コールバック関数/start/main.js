@@ -12,7 +12,12 @@ const person = {
     }
 }
 
-// setTimeout(/** ここに追記 */, 1000);
+// setTimeout(function() {
+//     const hello = person.hello();
+//     console.log(hello);
+// }, 1000);
+
+// setTimeout(console.log(person.hello()), 1000);
 
 /**
  * 問題２：
@@ -24,6 +29,10 @@ const person = {
  * ※alertは第一引数に渡した文字列を画面のダイアログに表
  * 示する関数です。
  */
+
+// setTimeout(() => {
+//     alert(person.hello());
+// }, 1000);
 
 
 /**
@@ -41,9 +50,9 @@ obj.greeting = function() {
     console.log('hello');
 }
 
-function after1s(callack) {
-    setTimeout(callack, 1000);
-}
+// function after1s(callack) {
+//     setTimeout(callack, 1000);
+// }
 
 // この時点で実行します。
 // after1s(obj.greeting);
@@ -67,28 +76,44 @@ function calcFactory(val) {
     return {
         plus: function(target) {
             const newVal = val + target;
-            console.log(`${val} + ${target} = ${newVal}`);
+            const res = `${val} + ${target} = ${newVal}`;
             val = newVal;
+            return res;
         },
         minus: function(target) {
             const newVal = val - target;
-            console.log(`${val} - ${target} = ${newVal}`);
+            const res = `${val} - ${target} = ${newVal}`;
             val = newVal;
+            return res;
         },
         multiply: function(target) {
             const newVal = val * target;
-            console.log(`${val} x ${target} = ${newVal}`);
+            const res = `${val} x ${target} = ${newVal}`;
             val = newVal;
+            return res;
         },
         divide: function(target) {
             const newVal = val / target;
-            console.log(`${val} / ${target} = ${newVal}`);
+            const res = `${val} / ${target} = ${newVal}`;
             val = newVal;
+            return res;
         }
     };
 }
 
+function logOrAlert(callback,alert) {
+    const res = callback();
+    if (alert) {
+        alert(res);
+    } else {
+        console.log(res);
+    }
+}
+
 const calc = calcFactory(10);
+logOrAlert(function(){
+    calc.plus(5);
+},true);
 calc.plus(5); 
 calc.minus(3); 
 calc.multiply(3);
