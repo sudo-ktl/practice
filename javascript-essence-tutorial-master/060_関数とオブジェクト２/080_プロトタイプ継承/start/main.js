@@ -6,3 +6,9 @@ function Person(name, age) {
 Person.prototype.hello = function() {
   console.log('hello ' + this.name);
 }
+
+function Japanese(name, age) {
+
+}
+
+Japanese.prototype = Object.create(Person.prototype)

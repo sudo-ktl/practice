@@ -16,8 +16,9 @@ class Japanese extends Person {
     }
 
     hello() {
-        super.hello();
         console.log('Konnichiwa ' + this.name);
+        super.hello();
+
     }
 
     bye() {
@@ -27,6 +28,7 @@ class Japanese extends Person {
 
 const taro = new Japanese('Taro', 23, 'Male');
 console.log(taro);
+taro.hello();
 taro.bye();
 
 // const american = {
