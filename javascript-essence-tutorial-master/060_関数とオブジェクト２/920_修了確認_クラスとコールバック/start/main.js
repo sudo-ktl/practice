@@ -18,6 +18,12 @@ class Person {
       console.log('hello ' + this.name);
   }
 }
-
+window.name = 'Tim'
 const bob = new Person('Bob', 23);
 setTimeout(bob.hello, 1000);
+// setTimeout(bob.hello.bind(bob), 1000);
+
+// setTimeout(function(){
+//   const bob = new Person('Bob', 23);
+//   bob.hello();
+// }, 1000)

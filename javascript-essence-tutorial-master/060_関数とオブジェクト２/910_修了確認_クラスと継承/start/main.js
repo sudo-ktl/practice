@@ -52,3 +52,44 @@ function loginController(user) {
     console.log('login failed');
   }
 }
+
+class User {
+  constructor(name) {
+    this.name = name;
+    this.pass = '/'
+  }
+  login() {
+    console.log(`User: ${this.name}`);
+    return false;
+  }
+  checkRoll() {
+    console.log("you have normal roll");
+    return true;
+  }
+  redirect() {
+    console.log(`redirect: ${this.pass}`)
+    return true;
+  }
+}
+
+class AdminUser extends User {
+  constructor (name){
+    super (name);
+    this.pass = '/admin'
+  }
+  login() {
+    console.log(`User: ${this.name}`);
+    return true;
+  }
+  checkRoll() {
+    console.log("you have admin roll");
+    return true;
+  }
+  redirect() {
+    console.log(`redirect: ${this.pass}`)
+    return true;
+  }
+}
+
+loginController(new User('Bob'));
+loginController(new AdminUser('Bob'));
