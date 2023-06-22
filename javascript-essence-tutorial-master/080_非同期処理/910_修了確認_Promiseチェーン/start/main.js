@@ -35,3 +35,38 @@ async function myFetch(fileName) {
 	const json = await response.json();
 	return json;
 }
+
+// async function createTL() {
+// 	const response = await myFetch("user1.json");
+// 	const id = response.id
+// 	const friends = await myFetch(`friendsOf${id}.json`)
+// 	let res = []
+// 	for (const id of friends.friendIds) {
+// 		const friend = await myFetch(`user${id}.json`)
+// 		const latestMsg = await myFetch(`message${friend.latestMsgId}.json`)
+// 		res.push(latestMsg)
+// 	}
+// 	for (const mg of res) {
+// 		const id = mg.userId
+// 		friend = await myFetch(`user${id}.json`)
+// 		friendName = friend.name
+// 		const msg = await myFetch(`message${friend.latestMsgId}.json`)
+// 		console.log(`${friendName} says: ${msg.message}`)
+// 	}
+// }
+
+// createTL();
+(async function() {
+	const me = await myFetch('user1.json');
+	console.log(`--${me.name}'s timeline--`);
+
+	const friendList = await myFetch(`friendsOf${me.id}.json`);
+
+	friendIds = new Set();
+	for(const id of friendList.friendIds) {
+		friendIds.add(myFetch(`user${id}.json`))
+	}
+	console.log(friendIds)
+	const friends = await Promise.all(friendIds);
+	console.log(friends)
+})();
