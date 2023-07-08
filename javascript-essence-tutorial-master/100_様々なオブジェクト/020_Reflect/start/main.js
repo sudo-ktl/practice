@@ -6,19 +6,22 @@ class C {
 }
 
 
-// const bob = {
-//   name: 'Bob',
-//   _hello: function () {
-//     console.log(`hello ${this.name}`);
-//   }
-// }
+const bob = {
+  name: 'Bob',
+  _hello: function () {
+    console.log(`hello ${this.name}`);
+  }
+}
 
-// const tom = {
-//   name: 'Tom',
-//   _hello: function () {
-//     console.log(`hello ${this.name}`);
-//   },
-//   get hello() {
-//     return this._hello();
-//   },
-// }
+const tom = {
+  name: 'Tom',
+  _hello: function () {
+    console.log(`hello ${this.name}`);
+  },
+  get hello() {
+    return this._hello();
+  },
+}
+
+tom.hello;
+Reflect.get(tom,'hello',bob)
