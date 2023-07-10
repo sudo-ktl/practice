@@ -26,6 +26,22 @@ class IteratableObject {
 		return this;
 	}
 
+	set(key, val) {
+		this[key] = val;
+		return this
+	}
+
+	forEach(callback) {
+		for(let [v,k] of this) {
+			callback(v,k,this);
+		}
+	}
+
+	*[Symbol.iterator]() {
+		for(let key in this) {
+			yield [key, this[key]]
+		}
+	}
 }
 
 function prefix(v, i, obj) {

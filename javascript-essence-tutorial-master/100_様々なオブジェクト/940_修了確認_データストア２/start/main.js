@@ -8,6 +8,7 @@
  * 
  */
 const KEY = 'test-data';
+let _darty;
 
 class DataSource {
 	static getLocal(KEY) {
@@ -27,10 +28,16 @@ const targetObj = DataSource.getLocal(KEY) || {};
 
 const pxy = new Proxy(targetObj, {
 	set(target, prop, value, receiver) {
+		_darty = true;
 		const result = Reflect.set(target, prop, value, receiver);
 
-		DataSource.setLocal(KEY, target);
-		
+		Promise.resolve().then(() => {
+			if(_darty) {
+				_darty = false
+				DataSource.setLocal(KEY, target);
+			}
+		});
+
 		return result;
 	}
 });
