@@ -1,0 +1,8 @@
+@use "child" as *;
+@use "sass:math";
+
+h1 {
+    background: orange;
+    font-size: math.div(30px,2);
+}
+

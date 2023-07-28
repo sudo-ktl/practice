@@ -1,0 +1,33 @@
+$cBlack: black;
+
+body {
+  text-align: center;
+}
+
+.rect {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background-color: $cBlack;
+  animation: sk-bouncedelay 1.4s;
+  animation-delay: 3s;
+  animation-timing-function: ease;
+  // animation-iteration-count: infinite;
+  // animation-direction: alternate;
+  // animation-fill-mode: forwards;
+}
+.paused {
+  animation-play-state: paused;
+}
+
+@keyframes sk-bouncedelay {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,10 @@
+@use "child";
+@use "child2";
+
+h1 {
+    color: child.$cBlue;
+}
+
+h2 {
+    color: child2.$cRed;
+}

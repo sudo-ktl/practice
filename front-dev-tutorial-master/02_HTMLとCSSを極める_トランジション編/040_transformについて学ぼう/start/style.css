@@ -1,0 +1,8 @@
+.rect {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  background-color: orangered;
+  transform: rotate(20deg);
+  transform-origin: top left;
+}/*# sourceMappingURL=style.css.map */
