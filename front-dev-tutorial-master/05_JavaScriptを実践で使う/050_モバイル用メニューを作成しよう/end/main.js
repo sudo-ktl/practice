@@ -11,7 +11,6 @@ class MobileMenu {
   _getEventType() {
     const isTouchCapable = "ontouchstart" in window ||
     (window.DocumentTouch && document instanceof DocumentTouch);
-
     return isTouchCapable ? "touchstart" : "click";
   }
 

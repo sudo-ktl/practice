@@ -8,6 +8,7 @@ img {
 .cover-slide {
   position: relative;
   overflow: hidden;
+  margin-bottom: 80vh;
 
   &::after {
     content: "";
@@ -52,20 +53,20 @@ img {
   }
 }
 
-// @keyframes kf-cover-slide {
-//   0% {
-//     left: 0;
-//     right: 100%;
-//   }
-//   50% {
-//     left: 0;
-//     right: 0;
-//   }
-//   100% {
-//     left: 100%;
-//     right: 0;
-//   }
-// }
+@keyframes kf-cover-slide {
+  0% {
+    left: 0;
+    right: 100%;
+  }
+  50% {
+    left: 0;
+    right: 0;
+  }
+  100% {
+    left: 100%;
+    right: 0;
+  }
+}
 
 .img-zoom {
   opacity: 0;

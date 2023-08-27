@@ -1,0 +1,16 @@
+$breakpoints: (
+    //スマホ横向き
+    'sm': '(min-width: 480px)',
+    //タブレット
+    'md': '(min-width: 600px)',
+    //ノートPC
+    'lg': '(min-width: 960px)',
+    //デスクトップ
+    'xl': '(min-width: 1280px)'
+);
+
+@mixin mq($breakpoint: md) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
+    }
+}

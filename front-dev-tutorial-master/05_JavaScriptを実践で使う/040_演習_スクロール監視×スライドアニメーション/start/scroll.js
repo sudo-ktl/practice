@@ -1,5 +1,6 @@
 class ScrollObserver {
     constructor(els, cb, options) {
+        console.log('ScrollObserverがnewされました')
         this.els = document.querySelectorAll(els);
         const defaultOptions = {
             root: null,

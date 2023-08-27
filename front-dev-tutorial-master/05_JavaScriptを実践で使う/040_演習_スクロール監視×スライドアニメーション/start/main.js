@@ -2,11 +2,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const cb = function (el, isIntersecting) {
         if(isIntersecting) {
-            const ta = new TextAnimation(el);
-            ta.animate();
+            console.log(el)
+            el.classList.add('inview')
         }
     }
-
-    const so = new ScrollObserver('.animate-title', cb);
+    console.log('DOMがロードされました')
+    const so = new ScrollObserver('.cover-slide', cb);
 });
 
